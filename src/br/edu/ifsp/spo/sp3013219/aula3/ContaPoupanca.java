@@ -7,10 +7,8 @@ public class ContaPoupanca extends Conta{
 	
 	
 	//CONSTRUTOR
-		public ContaPoupanca(int num, String titular, double saldo) {
-			setNumConta(num);
-			setTitular(titular);
-			depositar(saldo);
+		public ContaPoupanca(String num, String titular, double saldo) {
+			super(num, titular);
 		}
 	
 	

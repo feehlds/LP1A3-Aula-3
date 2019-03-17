@@ -4,42 +4,50 @@ public class ContaCorrente extends Conta{
 	
 	//VARIÁVEIS
 	private double limiteChequeEspecial;
+	private double chequeEspecial = 0;
 	static double taxaJurosChequeEspecial = 0.13;
 	static double imposto = 1.01;
 	
 	
 	//CONSTRUTOR
-	public ContaCorrente(int num, String titular, double saldo, double limite) {
-		setNumConta(num);
-		setTitular(titular);
-		depositar(saldo);
+	public ContaCorrente(String num, String titular, double limite) {
+		super(num, titular);
 		setLimiteChequeEspecial(limite);
 	}
 	
 	
 	//MÉTODOS
 	public void debitarJuros() {
-		depositar(- limiteChequeEspecial * taxaJurosChequeEspecial);
+		depositar(- chequeEspecial * taxaJurosChequeEspecial);
 	}
 	@Override
 	public void sacar(double valor){
 		if(valor <= getSaldo()) {	
 			this.saldo = this.saldo - valor * imposto;
 		} else {
-			if((getSaldo() - valor*imposto) * -1 <= limiteChequeEspecial) {
-				this.saldo = this.saldo - valor * imposto;
+			if(getChequeEspecial() + valor*imposto < limiteChequeEspecial) {
+				setChequeEspecial(getChequeEspecial() + (valor * imposto));
+				debitarJuros();
 			} else {
 				System.out.println("Sem limite de cheque especial!");
 			}
 		}
-	}
+	}	
 	
 	
-	
+	//GETTERS E SETTERS
 	public double getLimiteChequeEspecial() {
 		return this.limiteChequeEspecial;
 	}
 	public void setLimiteChequeEspecial(double limiteChequeEspecial) {
 		this.limiteChequeEspecial = limiteChequeEspecial;
+	}
+	
+	
+	public double getChequeEspecial() {
+		return this.chequeEspecial;
+	}
+	public void setChequeEspecial(double chequeEspecial) {
+		this.chequeEspecial = chequeEspecial;
 	}
 }
