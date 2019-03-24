@@ -3,11 +3,11 @@ package br.edu.ifsp.spo.sp3013219.aula3;
 public class ContaPoupanca extends Conta{
 
 	//VÁRIAVEIS
-	static double taxaRendimento = 1.005;
+	public static double taxaRendimento = 1.005;
 	
 	
 	//CONSTRUTOR
-		public ContaPoupanca(String num, String titular, double saldo) {
+		public ContaPoupanca(String num, String titular) {
 			super(num, titular);
 		}
 	
