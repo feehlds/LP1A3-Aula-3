@@ -5,7 +5,7 @@ public class ContaCorrente extends Conta{
 	//VARIÁVEIS
 	private double limiteChequeEspecial;
 	private double chequeEspecial = 0;
-	static double taxaJurosChequeEspecial = 0.13;
+	public static double taxaJurosChequeEspecial = 0.13;
 	static double imposto = 1.01;
 	
 	
