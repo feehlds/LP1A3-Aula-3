@@ -63,7 +63,6 @@ public class TesteContaCorrente {
 		assertEquals(saldoInicial - 100, cc.getSaldo());
 	}
 	
-	@Test
 	
 	
 }
