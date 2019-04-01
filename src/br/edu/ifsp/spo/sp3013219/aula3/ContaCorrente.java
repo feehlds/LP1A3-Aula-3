@@ -12,7 +12,12 @@ public class ContaCorrente extends Conta{
 	//CONSTRUTOR
 	public ContaCorrente(String num, String titular, double limite) {
 		super(num, titular);
-		setLimiteChequeEspecial(limite);
+		
+		if(limite <= 0) {
+			
+		}	else {
+			setLimiteChequeEspecial(limite);
+		}
 	}
 	
 	

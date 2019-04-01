@@ -10,11 +10,18 @@ public class Conta {
 	
 	//CONSTRUTOR
 	public Conta(String num, String titular) {
-		setNumConta(num);
-		setTitular(titular);
-		setSaldo(0);
-	}
-	
+		if(num == null || num.trim().isBlank()) {
+			throw new AccNumException("Número da conta não deve ser null");
+		
+		} else if(titular == null || titular.trim().isBlank()) {
+			throw new AccTitularException("O Campo titular deve ser preenchido");
+			
+			}	else {
+					setNumConta(num);
+					setTitular(titular);
+					setSaldo(0);
+				}
+	}	
 	
 	//MÉTODOS
 	public void transferirPara(Conta outraConta, double valor) {
@@ -30,7 +37,7 @@ public class Conta {
 		if(valor <= getSaldo()) {	
 			this.saldo = this.saldo - valor;
 		} else {
-			System.out.println("Sem Saldo!");
+			throw new AccSaldoException("O valor é maior que o saldo em conta");
 		}
 	}
 	
