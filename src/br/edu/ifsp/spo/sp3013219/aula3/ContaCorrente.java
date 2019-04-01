@@ -14,7 +14,7 @@ public class ContaCorrente extends Conta{
 		super(num, titular);
 		
 		if(limite <= 0) {
-			
+			throw new AccLimiteException("O limite deve ser maior que zero!");
 		}	else {
 			setLimiteChequeEspecial(limite);
 		}
